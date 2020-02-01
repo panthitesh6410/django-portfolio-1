@@ -12,7 +12,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
-<title>ShriTechnology</title>
+<title>shritech it solutions pvt ltd</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'main_app/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
@@ -337,19 +337,22 @@ Licence URI: https://www.os-templates.com/template-terms
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="send_message" style="padding:20px;">
-	<h1 id='msg' class="text-center" style="text-align:center;font-family:stencil;font-size:40px;">SEND US A MESSAGE</h1>
-	<div class="form_back" style='font-size:15px;color:#256492;background-color:#ddd;padding:20px;width:1000px;'>
-		<form id='form' action='' method='POST' style='margin-left:26%;'>
+	<h1 id='msg' class="text-center" style="text-align:center;font-family:stencil;font-size:40px;">SEND MESSAGE / FEEDACK</h1>
+	<div class="form_back" style='font-size:15px;color:#256492;background-color:#ddd;padding:20px;width:auto;'>
+		<form id='form' action='' method='POST' style='margin-left:5%;'>
+      {% csrf_token %}
 			<label for="#senders_name">Sender's Name -</label>
-			<input class="formelements" id="senders_name" type="text" name="senders_name" value="" placeholder="enter your name" required />
+			<input class="formelements" id="senders_name" type="text" name="name" value="" placeholder="enter your name" required />
 			<br/>
 			<label  for="#senders_email">Sender's Email -</label>
-			<input class="formelements" id="senders_email" type="email" name="senders_email" value="" placeholder="enter a valid email" required />
+			<input class="formelements" id="senders_email" type="email" name="email" value="" placeholder="enter a valid email" required />
 			<br/>
 			<label for="#senders_msg">Message -</label>
-			<textarea class="formelements" rows=10 cols=100 placeholder='write a message here ...' name='' value='' required></textarea>
-			<br?
-		</form>
+			<textarea class="formelements" rows=10 cols=100 placeholder='write a message here ...' name='message' value='' required></textarea>
+      <br/>
+      <input type="submit" class='btn btn-primary' value='SUBMIT'>
+    </form>
+    <p class='text-center' style='margin-left:30%;color:green;'>{{message.message}}</p>
 	</div>
 </div>
 
